@@ -1,7 +1,33 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<KendoTabStrip>
+    <KendoTab Title="Sofia">
+        <h2>22<span>ºC</span></h2>
+        <p>Sunny weather in Sofia</p>
+    </KendoTab>
+    <KendoTab Title="New York">
+        <h2>24<span>ºC</span></h2>
+        <p>Partly Cloudy weather in New York</p>
+    </KendoTab>
+</KendoTabStrip>
 
-Welcome to your new app.
+<!-- #region Spoiler -->
+@functions {
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+WeatherForecast[] WeatherForecast = new[]
+{
+new WeatherForecast { City="Sofia", TemperatureC=21, Summary="Sunny" },
+new WeatherForecast { City="London", TemperatureC=22, Summary="Cloudy" },
+new WeatherForecast { City="Paris", TemperatureC=17, Summary="Rainy" },
+};
+
+//KendoTabPosition tabPosition = KendoTabPosition.Top;
+}
+
+@*<select bind=@tabPosition>
+        <option value=@KendoTabPosition.Top>Top</option>
+        <option value=@KendoTabPosition.Left>Left</option>
+        <option value=@KendoTabPosition.Right>Right</option>
+        <option value=@KendoTabPosition.Bottom>Bottom</option>
+    </select>*@
+<!-- #endregion Spoiler -->
