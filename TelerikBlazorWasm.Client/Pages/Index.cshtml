@@ -1,33 +1,32 @@
 ﻿@page "/"
 
-<KendoTabStrip>
-    <KendoTab Title="Sofia">
-        <h2>22<span>ºC</span></h2>
-        <p>Sunny weather in Sofia</p>
+<select bind=@tabPosition>
+    <option value=@KendoTabPosition.Top>Top</option>
+    <option value=@KendoTabPosition.Left>Left</option>
+    <option value=@KendoTabPosition.Right>Right</option>
+    <option value=@KendoTabPosition.Bottom>Bottom</option>
+</select>
+
+<KendoTabStrip TabPosition=@tabPosition>
+    @foreach (var forecast in forecasts)
+    {
+    <KendoTab Title=@forecast.City>
+        <h2>@forecast.TemperatureC<span>ºC</span></h2>
+        <p>@forecast.Summary weather in @forecast.City</p>
     </KendoTab>
-    <KendoTab Title="New York">
-        <h2>24<span>ºC</span></h2>
-        <p>Partly Cloudy weather in New York</p>
-    </KendoTab>
+    }
 </KendoTabStrip>
 
-<!-- #region Spoiler -->
 @functions {
 
-WeatherForecast[] WeatherForecast = new[]
+WeatherForecast[] forecasts = new[]
 {
 new WeatherForecast { City="Sofia", TemperatureC=21, Summary="Sunny" },
 new WeatherForecast { City="London", TemperatureC=22, Summary="Cloudy" },
 new WeatherForecast { City="Paris", TemperatureC=17, Summary="Rainy" },
 };
 
-//KendoTabPosition tabPosition = KendoTabPosition.Top;
+KendoTabPosition tabPosition = KendoTabPosition.Top;
+
 }
 
-@*<select bind=@tabPosition>
-        <option value=@KendoTabPosition.Top>Top</option>
-        <option value=@KendoTabPosition.Left>Left</option>
-        <option value=@KendoTabPosition.Right>Right</option>
-        <option value=@KendoTabPosition.Bottom>Bottom</option>
-    </select>*@
-<!-- #endregion Spoiler -->
