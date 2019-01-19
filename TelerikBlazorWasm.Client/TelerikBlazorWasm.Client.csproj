@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Linker.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Linker.xml" />
+    <BlazorLinkerDescriptor  Include="Linker.xml" />
   </ItemGroup>
 
   <ItemGroup>
